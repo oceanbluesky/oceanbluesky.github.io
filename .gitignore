@@ -1,0 +1,31 @@
+# Ignore Mac-specific files
+.DS_Store
+
+# Ignore Rust build artifacts
+/target
+**/*.d
+**/*.rlib
+**/*.rmeta
+**/*.dylib
+**/*.so
+**/*.dll
+**/*.exe
+**/*.stamp
+**/*.lock
+**/*.json
+
+# Ignore Cargo.lock for libraries (but keep it for binaries)
+/Cargo.lock
+
+# Ignore any specific static assets
+/src/static/*.DS_Store
+
+# Ignore IDE/editor settings
+.idea/
+/.vscode/
+/*.code-workspace
+
+# Ignore other unnecessary files
+*.log
+*.tmp
+
