@@ -1,3 +1,31 @@
+
+
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Banner Style */
+.banner {
+    width: 100%;
+    /* background color */
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    /* Center banner */
+    text-align: center; 
+}
+
+/* Container for the main content with margins */
+.container {
+    margin: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+    line-height: 1.6;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
@@ -18,6 +46,8 @@ h1 {
 .thumbnail {
     float: left;
     margin-right: 10px;
+    width: 100px;
+    height: auto;
 }
 
 p::first-line {
@@ -25,3 +55,20 @@ p::first-line {
     text-transform: uppercase;
 }
 
+/* Clear floats after paragraphs */
+.paragraph-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 5%;
+    }
+
+    .thumbnail {
+        width: 70px;
+    }
+}
