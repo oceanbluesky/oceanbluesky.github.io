@@ -1,0 +1,9 @@
+[build]
+target = "wasm32-unknown-unknown"
+
+[serve]
+host = "127.0.0.1"
+port = 8080
+
+[static]
+dir = "src/static"
