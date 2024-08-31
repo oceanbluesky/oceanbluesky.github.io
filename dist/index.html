@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Pro Page</title>
+    <link rel="stylesheet" href="src/static/css/index.css">
+
+<link rel="modulepreload" href="/githubio-df78fc2714543538.js" crossorigin=anonymous integrity="sha384-ku0nrS31qs+HmHj50ecywjZqF194/3Ga0KA3mE89CiyuaQtPVB/46A1JTzOH6k7L">
+<link rel="preload" href="/githubio-df78fc2714543538_bg.wasm" crossorigin=anonymous integrity="sha384-amJ97NcO5T4412CB4WTjfoAD75CRYl7Il+NrjSk7uXZXgzG3AoUbzQBANXYSZsVc" as="fetch" type="application/wasm"></head>
+<body>
+    <!-- Rust will insert content here -->
+    <script type="module">
+        import init from './pkg/my_personal_pro_page.js';
+        init();
+    </script>
+
+<script type="module" nonce="0wVptMCtFQF1rLYp1jHMMQ==">
+import init, * as bindings from '/githubio-df78fc2714543538.js';
+const wasm = await init('/githubio-df78fc2714543538_bg.wasm');
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
+
