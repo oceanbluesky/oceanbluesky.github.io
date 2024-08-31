@@ -20,7 +20,6 @@ pub fn start() -> Result<(), JsValue> {
     linkedin_link.set_inner_html("<i class='fab fa-linkedin'></i>");
     container.append_child(&linkedin_link)?;
 
-    // Create "About" paragraphs
     let about_paragraph1 = document.create_element("p")?;
     about_paragraph1.set_inner_html("Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -31,8 +30,36 @@ pub fn start() -> Result<(), JsValue> {
     container.append_child(&about_paragraph1)?;
 
     let about_paragraph2 = document.create_element("p")?;
-    about_paragraph2.set_inner_html("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
-    container.append_child(&about_paragraph2)?;
+    about_paragraph2.set_inner_html("Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+    anim id est laborum.");    container.append_child(&about_paragraph2)?;
+
+    let about_paragraph3 = document.create_element("p")?;
+    about_paragraph2.set_inner_html("Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+    anim id est laborum.");    container.append_child(&about_paragraph3)?;
+
+    let about_paragraph4 = document.create_element("p")?;
+    about_paragraph4.set_inner_html("Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+    anim id est laborum.");    container.append_child(&about_paragraph4)?;
+
+    let about_paragraph5 = document.create_element("p")?;
+    about_paragraph2.set_inner_html("Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+    anim id est laborum.");    container.append_child(&about_paragraph5)?;
 
     // Create main content section with paragraphs and thumbnails
     for i in 1..=7 {
