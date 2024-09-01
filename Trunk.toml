@@ -1,9 +1,15 @@
 [build]
-target = "/Users/Eric/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/wasm32-unknown-unknown"
+target = "index.html"
+dist = "dist"
+public_url = "/"
 
 [serve]
-host = "127.0.0.1"
 port = 8080
 
-[static]
-dir = "src/static"
+[[copy]]
+source = "public/css/index.css"
+target = "static/css/index.css"
+
+[[copy]]
+source = "public/images"
+target = "static/images/"

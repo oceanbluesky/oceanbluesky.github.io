@@ -1,5 +1,6 @@
 
 // lib.rs
+// <img src="/static/images/logo.png" alt="Logo">
 
 
 use wasm_bindgen::prelude::*;

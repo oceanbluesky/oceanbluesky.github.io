@@ -1,0 +1,56 @@
+<!-- githubio/index.html-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Machmer &nbsp;&nbsp; ART | CODE | STORY</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<link rel="modulepreload" href="/githubio-64ac45959a7dbad4.js" crossorigin=anonymous integrity="sha384-Zv8Edyh7Jg2HIpUnWI+So13smiPh08sbvhrJxr9KmFJO5GkH8WpeRp43gJb6YmKW">
+<link rel="preload" href="/githubio-64ac45959a7dbad4_bg.wasm" crossorigin=anonymous integrity="sha384-6h9sRbWjse0/0XaufxiomF8RFYmqWSgTPPo/lMLY5qR4UmdATZ6ujKOfdKma+lGJ" as="fetch" type="application/wasm"></head>
+
+<body>
+
+    <!-- Banner unconstrained by the container's margins below -->
+    <div class="banner">
+        <h1>Eric Machmer</h1>
+        <!-- add banner content here -->
+    </div>
+
+    <div class="container">
+        <!-- Rust will insert content here -->
+    </div>
+
+    <!-- Rust will insert content here -->
+    <script type="module">
+        import init from './githubio-8d2d5e9d79e9c051.js';
+
+        async function run() {
+            await init({
+                wasmModule: './githubio-8d2d5e9d79e9c051_bg.wasm',
+            });
+        }
+
+        run();
+    </script>
+
+
+<script type="module" nonce="LoJLPMwf92Rki3kFUdDkLg==">
+import init, * as bindings from '/githubio-64ac45959a7dbad4.js';
+const wasm = await init('/githubio-64ac45959a7dbad4_bg.wasm');
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+
+</html>
+
