@@ -6,10 +6,19 @@ public_url = "/"
 [serve]
 port = 8080
 
-[[copy]]
-source = "public/css/index.css"
-target = "static/css/index.css"
 
-[[copy]]
-source = "public/images"
-target = "static/images/"
+[[hooks]]
+stage = "build"
+command = "mkdir"
+command_arguments = ["-p", "dist/static/css", "dist/static/images"]
+
+[[hooks]]
+stage = "build"
+command = "cp"
+command_arguments = ["-r", "public/images/", "dist/static/images/"]
+
+[[hooks]]
+stage = "build"
+command = "cp"
+command_arguments = ["public/css/index.css", "dist/static/css/"]
+

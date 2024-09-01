@@ -4,7 +4,7 @@
 
 
 use wasm_bindgen::prelude::*;
-use web_sys::{Element};
+use web_sys::Element;
 
 #[wasm_bindgen(start)]
 pub fn start() -> Result<(), JsValue> {
