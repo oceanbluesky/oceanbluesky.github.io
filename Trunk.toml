@@ -6,19 +6,7 @@ public_url = "/"
 [serve]
 port = 8080
 
-
 [[hooks]]
-stage = "build"
-command = "mkdir"
-command_arguments = ["-p", "dist/static/css", "dist/static/images"]
-
-[[hooks]]
-stage = "build"
-command = "cp"
-command_arguments = ["-r", "public/images/", "dist/static/images/"]
-
-[[hooks]]
-stage = "build"
-command = "cp"
-command_arguments = ["public/css/index.css", "dist/static/css/"]
-
+stage = "post_build"
+command = "sh"
+command_arguments = ["-c", "echo 'Creating directories...' && mkdir -p dist/static/css dist/static/images && echo 'Copying images...' && cp -r public/images/ dist/static/images/ && echo 'Copying CSS...' && cp public/css/index.css dist/static/css/ && echo 'Listing dist/static contents...' && ls dist/static && echo 'Listing dist/static/css contents...' && ls dist/static/css && echo 'Listing dist/static/images contents...' && ls dist/static/images && echo 'Done.'"]
