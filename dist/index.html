@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="static/css/index.css">
     <script src="githubio-35bdd350a418d19a.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-</head>
+
+<link rel="modulepreload" href="/githubio-35bdd350a418d19a.js" crossorigin=anonymous integrity="sha384-Zv8Edyh7Jg2HIpUnWI+So13smiPh08sbvhrJxr9KmFJO5GkH8WpeRp43gJb6YmKW">
+<link rel="preload" href="/githubio-35bdd350a418d19a_bg.wasm" crossorigin=anonymous integrity="sha384-FAwLqMmacl/qzDrC6VoCiNDTbJmqRFGHaRYDYgecVuroCVEgcaFLvNjIIFN5O3VR" as="fetch" type="application/wasm"></head>
 
 <body>
 
@@ -38,7 +40,18 @@
         run();
     </script>
 
-</body>
+
+<script type="module" nonce="0rcXlbPXo2L91cj9FoMG+g==">
+import init, * as bindings from '/githubio-35bdd350a418d19a.js';
+const wasm = await init('/githubio-35bdd350a418d19a_bg.wasm');
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
 
 </html>
 

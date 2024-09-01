@@ -6,19 +6,26 @@ public_url = "/"
 [serve]
 port = 8080
 
-[[hooks]]
-stage = "build"
-command = "mkdir"
-command_arguments = ["-p", "dist/static/css", "dist/static/images"]
+[lib]
+name = "githubio"
+path = "src/lib.rs"
 
-[[hooks]]
-stage = "build"
-command = "cp"
-command_arguments = ["-r", "public/images/", "dist/static/images/"]
+[[copy]]
+from = "public/css/index.css"
+to = "dist/static/css/"
 
-[[hooks]]
-stage = "build"
-command = "sh"
-command_arguments = ["cp public/css/index.css dist/static/css/"]
+[[copy]]    
+from = "public/images/"
+to = "dist/static/images/"
 
+[[copy]]
+from = "public/favicon.ico"
+to = "dist/"
 
+[[copy]]
+from = "public/robots.txt"
+to = "dist/"
+
+[[scss]]
+from = "src/styles/styles.scss"
+to = "static/css/index.css"
