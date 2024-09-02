@@ -2,6 +2,7 @@
 target = "index.html"
 dist = "dist"
 public_url = "/"
+wasm_opt = ["-O3"]
 
 [serve]
 port = 8080
@@ -10,22 +11,7 @@ port = 8080
 name = "githubio"
 path = "src/lib.rs"
 
-[[copy]]
-from = "public/css/index.css"
-to = "dist/static/css/"
-
-[[copy]]    
-from = "public/images/"
-to = "dist/static/images/"
-
-[[copy]]
-from = "public/favicon.ico"
-to = "dist/"
-
-[[copy]]
-from = "public/robots.txt"
-to = "dist/"
-
 [[scss]]
 from = "src/styles/styles.scss"
 to = "static/css/index.css"
+
