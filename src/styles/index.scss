@@ -73,3 +73,20 @@ p::first-line {
         width: 70px;
     }
 }
+
+/* Footer Styles */
+.footer {
+    background-color: black;
+    /* Black background */
+    color: white;
+    /* White text */
+    height: 10vh;
+    /* 10% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    /* Roboto font */
+    font-size: 14px;
+    /* 14px font size */
+}

@@ -4,10 +4,10 @@ use dioxus::prelude::*;
 use dioxus_logger::tracing::{Level, info};
 
 mod components;
-use components::{home::Home, blog::Blog};
+use components::app::App;  // Import the App from app.rs
+use components::{home::Home, blog::Blog};  // Import Home, Blog, and Footer
 
-
-
+// Define the routes
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
     #[route("/")]
@@ -15,18 +15,10 @@ enum Route {
     #[route("/blog/:id")]
     Blog { id: i32 },
 }
- 
 
 fn main() {
     // Init logger
     dioxus_logger::init(Level::INFO).expect("failed to init logger");
     info!("starting app");
-    launch(App);
-}
-
-
-fn App() -> Element {
-    rsx! {
-        Router::<Route> {}
-    }
+    launch(App);  // Launch the App from app.rs
 }

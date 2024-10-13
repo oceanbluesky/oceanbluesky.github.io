@@ -5,7 +5,7 @@ use crate::Route;
 pub fn Blog(id: i32) -> Element {
     rsx! {
         Link { to: Route::Home {}, "Go to counter" }
-        "Blog post {id}"
+        "Blog post with id: {id}"
     }
 }
 
