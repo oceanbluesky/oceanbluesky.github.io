@@ -23,7 +23,7 @@ fn main() {
     launch(App);  // Launch the App from app.rs
 }
 
-**To Dos:**
+/* **To Dos:**
 
 - [ ]  Cull screenshots of podcasts: xAI and PIML
 - [ ]  Oceanbluesky,io Rust WASM
@@ -44,4 +44,4 @@ fn main() {
     - [ ]  https://matthiasfrank.de/global-tags-in-notion/
     - [ ]  Different views for same task database depending upon location for tasks
     - [ ]  Save to Notion
-    - [ ]  Formulas for Notion
+    - [ ]  Formulas for Notion */
