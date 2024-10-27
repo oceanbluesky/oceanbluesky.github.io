@@ -9,6 +9,8 @@ edition = "2021"
 name = "github_bio"
 path = "src/main.rs"
 
+dioxus = "0.5.6"
+dioxus-web = "0.5.6"
 [dependencies]
 wasm-bindgen = "0.2"
 web-sys = { version = "0.3", features = ["Window", "Document", "HtmlElement"] }
