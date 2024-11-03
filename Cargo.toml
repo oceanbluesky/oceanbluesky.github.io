@@ -1,21 +1,6 @@
 [package]
 name = "github_bio"
-authors = ["Eric <ericmachmer@factualfiction.com>"]
 version = "0.1.0"
 edition = "2021"
 
-# Define this as a binary crate (if using `main.rs`)
-[[bin]]
-name = "github_bio"
-path = "src/main.rs"
-
-dioxus = "0.5.6"
-dioxus-web = "0.5.6"
 [dependencies]
-wasm-bindgen = "0.2"
-web-sys = { version = "0.3", features = ["Window", "Document", "HtmlElement"] }
-js-sys = "0.3.61"
-dioxus = { version = "0.5", features = ["web", "router"] }
-
-# Debugging tools
-dioxus-logger = "0.5.1"

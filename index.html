@@ -1,48 +1,22 @@
-<!-- githubio/index.html-->
-
-<!DOCTYPE html>
-
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eric Machmer &nbsp;&nbsp; ART | CODE | STORY</title>
-
-    <link data-trunk rel="scss" href="src/styles/index.scss" data-target-path="static/css/">
-    
-    <link data-trunk rel="copy-file" href="/public/favicon.ico" data-target-path="static/">
-    <link data-trunk rel="copy-file" href="/public/robots.txt" data-target-path="static/">
-    <link data-trunk rel="copy-dir" href="/public/images" data-target-path="static/images/"/>
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Eric Machmer | Home </title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- Banner unconstrained by the container's margins below -->
-    <div class="banner">
-        <h1>Eric Machmer</h1>
-        <!-- add banner content here -->
-    </div>
-
-    <div class="container">
-        <!-- Rust will insert content here -->
-    </div>
-
-    <!-- Rust will insert content here -->
-    <script type="module">
-        import init from './githubio-8d2d5e9d79e9c051.js';
-
-        async function run() {
-            await init({
-                wasmModule: './githubio-8d2d5e9d79e9c051_bg.wasm',
-            });
-        }
-
-        run();
-    </script>
-
+    <header>
+        <h1>Welcome</h1>
+        <img src="assets/images/hero.jpg" alt="Splash Image">
+    </header>
+    <nav>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="blog/contents.html">Essays</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </body>
 
 </html>
-
