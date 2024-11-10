@@ -1,6 +1,7 @@
 use dioxus::prelude::*;
+use std::thread::Scope;
 
-pub fn Blog(cx: Scope) -> Element {
+pub fn Essays(cx: Scope) -> Element {
     cx.render(rsx! {
         div {
             h1 { "Essays" }

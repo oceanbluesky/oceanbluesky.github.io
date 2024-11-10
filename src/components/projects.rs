@@ -1,4 +1,5 @@
 use dioxus::prelude::*;
+use std::thread::Scope;
 
 #[allow(non_snake_case)]
 pub fn Projects(cx: Scope) -> Element {

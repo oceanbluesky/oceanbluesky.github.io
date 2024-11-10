@@ -1,15 +1,15 @@
 use dioxus::prelude::*;
-use dioxus_router::prelude::*;
+use dioxus_router::{Router, Route, Link};
 
 
 mod components;
-use components::{about, essays, contact, footer, header, home, projects, research};
+use components::{about, essays, contact, home, projects, research};
 
 fn main() {
-    dioxus::launch(App); // Pass the component function directly
+    dioxus::launch(app); // Pass the component function directly
 }
 
-fn App(cx: Scope) -> Element {
+fn app(cx: ScopeState) -> Element {
     cx.render(rsx! {
         Router {
             nav {
@@ -20,12 +20,12 @@ fn App(cx: Scope) -> Element {
                 Link { to: "/projects", "Projects" }
                 Link { to: "/contact", "Contact" }
             }
-            Route { to: "/", component: home::Home {} }
-            Route { to: "/about", component: about::About {} }
-            Route { to: "/research", component: research::Research {} }
-            Route { to: "/essays", component: essays::Essays {} }
-            Route { to: "/contact", component: contact::Contact {} }
-            Route { to: "/projects", component: projects::Projects {} }
+            Route { to: "/", component: components::home::Home {} }
+            Route { to: "/about", component: components::about::About {} }
+            Route { to: "/research", component: components::research::Research {} }
+            Route { to: "/essays", component: components::essays::Essays {} }
+            Route { to: "/contact", component: components::contact::Contact {} }
+            Route { to: "/projects", component: components::projects::Projects {} }
         }
     })
 }

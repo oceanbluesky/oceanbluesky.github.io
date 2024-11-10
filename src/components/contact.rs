@@ -1,4 +1,5 @@
 use dioxus::prelude::*;
+use std::thread::Scope;
 
 #[allow(non_snake_case)]
 pub fn Contact(cx: Scope) -> Element {
