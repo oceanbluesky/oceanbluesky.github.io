@@ -9,8 +9,5 @@ pub fn Contact(cx: Scope) -> Element {
     })
 }
 
-<!--    
+// Add links to GitHub, LinkedIn, Google Scholar, email, etc.
 
-Add links to GitHub, LinkedIn, Google Scholar, email, etc.
-
--->

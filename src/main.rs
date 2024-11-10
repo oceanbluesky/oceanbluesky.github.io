@@ -1,11 +1,12 @@
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
+
 mod components;
 use components::{about, essays, contact, footer, header, home, projects, research};
 
 fn main() {
-    dioxus::launch_with_props(App); // Pass the component function directly
+    dioxus::launch(App); // Pass the component function directly
 }
 
 fn App(cx: Scope) -> Element {
@@ -19,12 +20,12 @@ fn App(cx: Scope) -> Element {
                 Link { to: "/projects", "Projects" }
                 Link { to: "/contact", "Contact" }
             }
-            Route { to: "/", home::Home {} }
-            Route { to: "/about", about::About {} }
-            Route { to: "/research", research::Research {} }
-            Route { to: "/essays", essays::Essays {} }
-            Route { to: "/contact", contact::Contact {} }
-            Route { to: "/projects", projects::Projects {} }
+            Route { to: "/", component: home::Home {} }
+            Route { to: "/about", component: about::About {} }
+            Route { to: "/research", component: research::Research {} }
+            Route { to: "/essays", component: essays::Essays {} }
+            Route { to: "/contact", component: contact::Contact {} }
+            Route { to: "/projects", component: projects::Projects {} }
         }
     })
 }
