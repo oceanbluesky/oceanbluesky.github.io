@@ -19,9 +19,7 @@ pub fn Projects(cx: Scope) -> Element {
     })
 }
 
-    <!-- More projects 
-
+/* 
     Showcase ML graphs, renders, or other projects as a gallery.
     Structure each project with an image and a brief description.
-    
--->
+ */    
