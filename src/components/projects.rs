@@ -1,9 +1,8 @@
 use dioxus::prelude::*;
-use std::thread::Scope;
 
-#[allow(non_snake_case)]
-pub fn Projects(cx: Scope) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn Projects() -> Element {
+    rsx! {
         div { class: "projects",
             h2 { "Projects" }
             div { class: "gallery",
@@ -17,7 +16,7 @@ pub fn Projects(cx: Scope) -> Element {
                 }
             }
         }
-    })
+    }
 }
 
 /* 

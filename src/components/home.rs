@@ -1,11 +1,9 @@
-// src/components/home.rs
-
 use dioxus::prelude::*;
-use std::thread::Scope;
 
-#[allow(non_snake_case)]
-pub fn Home(cx: Scope) -> Element {
-    cx.render(rsx! {
-        div { "Home Page Content" }
-    })
+
+#[component]
+pub fn Home() -> Element {
+    rsx! { 
+        h1 { "Welcome to the Dioxus Blog!" } 
+    }
 }

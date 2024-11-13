@@ -1,31 +1,51 @@
-use dioxus::prelude::*;
-use dioxus_router::{Router, Route, Link};
+#![allow(non_snake_case)]
 
+use dioxus::prelude::*;
 
 mod components;
-use components::{about, essays, contact, home, projects, research};
+use components::{
+    about::About,
+    contact::Contact,
+    header::Header,
+    home::Home, 
+    essays_list::EssaysList, 
+    footer::Footer,
+    navbar::NavBar, 
+    page_not_found::PageNotFound,
+    projects::Projects,
+    research::Research,
+};
 
-fn main() {
-    dioxus::launch(app); // Pass the component function directly
+// ANCHOR: router
+#[derive(Routable, Clone)]
+#[rustfmt::skip]
+enum Route {
+    #[layout(NavBar)]
+    #[route("/header")]
+    Header {},
+    #[route("/")]
+    Home {},
+    #[route("/about")]
+    About {},
+    #[route("/contact")]
+    Contact {},
+    #[route("/essays_list")]
+    EssaysList{},
+    #[route("/footer")]
+    Footer {},
+    #[route("/projects")]
+    Projects {},
+    #[route("/research")]
+    Research {},
+    #[route("/:..route")]
+    PageNotFound {route: Vec<String>},
 }
 
-fn app(cx: ScopeState) -> Element {
-    cx.render(rsx! {
-        Router {
-            nav {
-                Link { to: "/", "Home" }
-                Link { to: "/about", "About" }
-                Link { to: "/research", "Research" }
-                Link { to: "/essays", "Essays" }
-                Link { to: "/projects", "Projects" }
-                Link { to: "/contact", "Contact" }
-            }
-            Route { to: "/", component: components::home::Home {} }
-            Route { to: "/about", component: components::about::About {} }
-            Route { to: "/research", component: components::research::Research {} }
-            Route { to: "/essays", component: components::essays::Essays {} }
-            Route { to: "/contact", component: components::contact::Contact {} }
-            Route { to: "/projects", component: components::projects::Projects {} }
-        }
-    })
+fn main() {
+    dioxus::launch(App);  // This launches the main Dioxus app
+}
+
+// ANCHOR_END: router
+pub fn App() -> Element {
+    rsx! { Router::<Route> {} }
 }

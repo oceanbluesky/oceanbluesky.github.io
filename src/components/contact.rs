@@ -1,13 +1,13 @@
 use dioxus::prelude::*;
-use std::thread::Scope;
 
-#[allow(non_snake_case)]
-pub fn Contact(cx: Scope) -> Element {
-    cx.render(rsx! {
-        div { class: "contact",
-            h2 { "Contact" }
-                        }
-    })
+#[component]
+pub fn Contact() -> Element {
+    rsx! { 
+            div { 
+                class: "contact",
+                h2 { "Contact" }        
+            }
+     }
 }
 
 // Add links to GitHub, LinkedIn, Google Scholar, email, etc.
