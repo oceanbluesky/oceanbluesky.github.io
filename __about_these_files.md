@@ -1,1 +1,5 @@
-https://chatgpt.com/c/672612e5-8ba0-800f-b436-15f96eef1fb3
+Build Tailwind before running 'dx serve' via:
+
+npx tailwindcss -i ./public/assets/tailwind.css -o ./dist/assets/style.css --watch
+
+
