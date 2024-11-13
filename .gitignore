@@ -36,3 +36,4 @@
 # already existing elements were commented out
 
 #/target
+node_modules/
