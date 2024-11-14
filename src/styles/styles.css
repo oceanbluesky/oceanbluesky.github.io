@@ -18,7 +18,7 @@
 }
 
 /* Optional: Add some styling for hover effect */
-.navbar-item a:hover {
+.nav-item a:hover {
     background-color: #ddd;
     /* Light background on hover */
     border-radius: 4px;
