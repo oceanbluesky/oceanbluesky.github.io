@@ -4,6 +4,14 @@ run this to build tailwind.css and dx serve index.html:
  npm run serve   
 
 
+It will be necessary to handcode this css link in the dist/assets/index.html file:
+<link rel="stylesheet" href="assets/styles/tailwind.css">
+
+
+
+ _____
+
+
 the 'npm commands' are in package.json (if files are moved update the package.json file as well): 
 
 {

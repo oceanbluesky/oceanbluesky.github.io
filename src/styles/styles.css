@@ -1,0 +1,25 @@
+/* Set nav-list to display items in a row */
+.navbar-list {
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    /* Space between items */
+}
+
+/* Style each navigation item */
+.navbar-item a {
+    text-decoration: none;
+    color: inherit;
+    /* Use the default text color */
+    padding: 0.5rem 1rem;
+}
+
+/* Optional: Add some styling for hover effect */
+.navbar-item a:hover {
+    background-color: #ddd;
+    /* Light background on hover */
+    border-radius: 4px;
+}

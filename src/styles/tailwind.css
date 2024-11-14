@@ -1,3 +1,11 @@
+/* Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom styles */
+@import './styles.css';
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -554,6 +562,3 @@ video {
   display: none;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
