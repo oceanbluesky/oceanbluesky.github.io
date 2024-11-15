@@ -10,6 +10,7 @@ serde = { version = "1.0.215", features = ["derive"] }
 serde_json = "1.0"
 dioxus-router = "*"
 stylist = "0.13.0"
+manganis = "0.2.2"
 
 [web.watcher]
 index_on_404 = true
