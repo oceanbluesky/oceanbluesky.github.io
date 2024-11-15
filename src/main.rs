@@ -3,6 +3,7 @@
 use dioxus::prelude::*;
 
 // Urls are relative to Cargo.toml file
+// Disregard the error, it's a bug in the macro
 const _TAILWIND_URL: &str = manganis::mg!(file("dist/assets/styles/tailwind.css"));
 
 
