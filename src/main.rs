@@ -2,6 +2,10 @@
 
 use dioxus::prelude::*;
 
+// Urls are relative to Cargo.toml file
+const _TAILWIND_URL: &str = manganis::mg!(file("dist/assets/styles/tailwind.css"));
+
+
 mod components;
 use components::{
     about::About,
