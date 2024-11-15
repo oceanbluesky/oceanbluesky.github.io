@@ -4,25 +4,49 @@ use crate::Route;
 #[component]
 pub fn NavBar() -> Element {
     rsx! {
-        nav { class: "navbar",
-            ul { class: "navbar__list",
-                li { class: "navbar__item",
-                    Link { to: Route::Home {}, "Home" }
+        nav {
+            ul { class: "flex list-none p-0 m-0 gap-4",
+                li {
+                    Link {
+                        to: Route::Home {},
+                        class: "no-underline text-inherit px-4 py-2 hover:bg-gray-200 rounded-md",
+                        "Home"
+                    }
                 }
-                li {class: "navbar__item",
-                    Link { to: Route::About {}, "About" }
+                li {
+                    Link {
+                        to: Route::About {},
+                        class: "no-underline text-inherit px-4 py-2 hover:bg-gray-200 rounded-md",
+                        "About"
+                    }
                 }
-                li {class: "navbar__item",
-                    Link { to: Route::EssaysList {}, "Essays" }
+                li {
+                    Link {
+                        to: Route::EssaysList {},
+                        class: "no-underline text-inherit px-4 py-2 hover:bg-gray-200 rounded-md",
+                        "Essays"
+                    }
                 }
-                li {class: "navbar__item",
-                    Link { to: Route::Projects {}, "Projects" }
+                li {
+                    Link {
+                        to: Route::Projects {},
+                        class: "no-underline text-inherit px-4 py-2 hover:bg-gray-200 rounded-md",
+                        "Projects"
+                    }
                 }
-                li {class: "navbar__item",
-                    Link { to: Route::Research {}, "Research" }
+                li {
+                    Link {
+                        to: Route::Research {},
+                        class: "no-underline text-inherit px-4 py-2 hover:bg-gray-200 rounded-md",
+                        "Research"
+                    }
                 }
-                li {class: "navbar__item",
-                    Link { to: Route::Contact {}, "Contact" }
+                li {
+                    Link {
+                        to: Route::Contact {},
+                        class: "no-underline text-inherit px-4 py-2 hover:bg-gray-200 rounded-md",
+                        "Contact"
+                    }
                 }
             }
         }
