@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 pub fn Header() -> Element {
     rsx! {
         div { 
-            class: "header",
+            class: "header mt-10", // Adds margin-top for spacing from the NavBar
             h2 { "Header here" }
         }
     }
