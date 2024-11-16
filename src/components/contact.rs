@@ -4,13 +4,13 @@ use dioxus::prelude::*;
 pub fn Contact() -> Element {
     rsx! { 
         div { 
-            class: "contact ml-33%",
+            class: "contact ml-64 mt-16 mb-3",
             h2 {
-                class: "font-display text-5xl text-black",
+                class: "font-display font-bold text-5xl text-black",
                 "Contact"
             }
             p {
-                class: "font-text text-base text-black", 
+                class: "font-text text-xl text-gray-500", 
                 "Feel free to reach out via the following platforms."
             }
                 div {

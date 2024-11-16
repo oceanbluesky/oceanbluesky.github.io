@@ -1,4 +1,9 @@
 
+1st:  npm run serve   
+2nd:  http://localhost:8080
+
+
+
 
 Info:
 https://dioxuslabs.com/learn/0.5/cookbook/tailwind/
