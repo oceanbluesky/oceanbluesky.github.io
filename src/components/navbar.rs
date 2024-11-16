@@ -7,7 +7,7 @@ pub fn NavBar() -> Element {
         nav {
             class: "flex justify-center mt-4", 
             ul {
-                class: "flex list-none p-0 m-0 gap-2 text-sm font-sans font-light text-black", 
+                class: "flex list-none p-0 m-0 gap-2 text-sm font-text font-light text-black", 
                 li {
                     Link {
                         to: Route::Home {},
