@@ -3,11 +3,16 @@
 ARG NODE_VERSION=23.0.0
 FROM node:${NODE_VERSION}-alpine
 
-# Install Rust and Dioxus CLI for running `dx` commands
-RUN apk add --no-cache curl gcc musl-dev && \
+# Install Rust, Dioxus CLI, and required dependencies (including make and Perl for building OpenSSL)
+RUN apk add --no-cache curl gcc musl-dev perl make && \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
     source $HOME/.cargo/env && \
-    cargo install dioxus-cli
+    echo 'source $HOME/.cargo/env' >> /etc/profile && \
+    cargo install dioxus-cli && \
+    chmod +x /root/.cargo/bin/dx  # Ensure dx has execute permissions
+
+# Add Cargo to PATH for future commands
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Use production node environment by default
 ENV NODE_ENV=production
