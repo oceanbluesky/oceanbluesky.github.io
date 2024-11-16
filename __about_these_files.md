@@ -3,7 +3,6 @@
 Info:
 https://dioxuslabs.com/learn/0.5/cookbook/tailwind/
 
-
 run this to build tailwind.css and dx serve index.html:
  npm run serve   
 
