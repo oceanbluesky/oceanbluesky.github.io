@@ -11,10 +11,15 @@ ARG NODE_VERSION=23.0.0
 FROM node:${NODE_VERSION}-alpine
 
 # Use production node environment by default.
-ENV NODE_ENV production
-
+ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
+
+# Copy package files into the image
+COPY package.json package-lock.json ./
+
+# Install all dependencies
+RUN npm ci --omit=dev
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.npm to speed up subsequent builds.
@@ -35,4 +40,4 @@ COPY . .
 EXPOSE 8080
 
 # Run the application.
-CMD npm run serve
+CMD ["npm", "run", "serve"]

@@ -3,10 +3,13 @@
 2nd:  http://localhost:8080
 
 
-With -t githubio-app assigns the name githubio-app to the image and specifies the current directory (where the Dockerfile is located) as the build context:
+IF RUNNING VIA DOCKER:
+1) open the Docker Desktop application to start the Docker daemon.
+2) With -t githubio-app assigns the name githubio-app to the image and 
+    specifies the current directory (where the Dockerfile is located) 
+    as the build context:
     docker build -t githubio-app .
-
-Then with the following command start a container using this named image:
+3) Then with the following command start a container using this named image:
  docker run -p 8080:8080 githubio-app
 
 
