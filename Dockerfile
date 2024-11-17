@@ -6,16 +6,16 @@ FROM node:${NODE_VERSION}-alpine
 # Install system dependencies needed for Rust and Dioxus CLI
 RUN apk add --no-cache curl gcc musl-dev perl make
 
-# Install Rust and Dioxus CLI as root
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+# Install Rust and Dioxus CLI
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable && \
     echo 'source $HOME/.cargo/env' >> /etc/profile && \
     source $HOME/.cargo/env && \
     PATH="$HOME/.cargo/bin:$PATH" && \
-    cargo install dioxus-cli && \
-    chmod +x /root/.cargo/bin/dx
+    cargo install dioxus-cli --root /usr/local && \
+    chmod +x /usr/local/bin/dx  # Set permissions for dx only
 
-# Update PATH to include Cargo bin directory
-ENV PATH="/root/.cargo/bin:${PATH}"
+# Ensure Cargo bin directory is in PATH for all users
+ENV PATH="/root/.cargo/bin:/usr/local/bin:${PATH}"
 
 # Use production node environment by default
 ENV NODE_ENV=production
