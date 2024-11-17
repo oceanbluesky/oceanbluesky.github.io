@@ -14,6 +14,9 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --pr
     cargo install dioxus-cli --root /usr/local && \
     chmod +x /usr/local/bin/dx  # Set permissions for dx only
 
+# Change permissions for the .cargo and .rustup directories
+RUN chown -R node:node /root/.cargo /root/.rustup
+
 # Ensure Cargo bin directory is in PATH for all users
 ENV PATH="/root/.cargo/bin:/usr/local/bin:${PATH}"
 
