@@ -3,15 +3,18 @@
 ARG NODE_VERSION=23.0.0
 FROM node:${NODE_VERSION}-alpine
 
-# Install Rust, Dioxus CLI, and required dependencies (including make and Perl for building OpenSSL)
-RUN apk add --no-cache curl gcc musl-dev perl make && \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
-    source $HOME/.cargo/env && \
-    echo 'source $HOME/.cargo/env' >> /etc/profile && \
-    cargo install dioxus-cli && \
-    chmod +x /root/.cargo/bin/dx  # Ensure dx has execute permissions
+# Install system dependencies needed for Rust and Dioxus CLI
+RUN apk add --no-cache curl gcc musl-dev perl make
 
-# Add Cargo to PATH for future commands
+# Install Rust and Dioxus CLI as root
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+    echo 'source $HOME/.cargo/env' >> /etc/profile && \
+    source $HOME/.cargo/env && \
+    PATH="$HOME/.cargo/bin:$PATH" && \
+    cargo install dioxus-cli && \
+    chmod +x /root/.cargo/bin/dx
+
+# Update PATH to include Cargo bin directory
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Use production node environment by default
@@ -19,19 +22,14 @@ ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
-# Copy package files into the image
+# Copy package files into the image and install dependencies
 COPY package.json package-lock.json ./
+RUN npm ci --omit=dev && npm install concurrently tailwindcss --no-save
 
-# Install all dependencies (omit dev dependencies for production)
-RUN npm ci --omit=dev
-
-# Install specific devDependencies needed for `serve` script
-RUN npm install concurrently tailwindcss --no-save
-
-# Create necessary directories with correct permissions
+# Create necessary directories and set permissions
 RUN mkdir -p dist/assets/styles target && chown -R node:node dist target
 
-# Run the application as a non-root user
+# Switch to non-root user for running the application
 USER node
 
 # Copy the rest of the source files into the image
