@@ -14,7 +14,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --pr
     cargo install dioxus-cli --root /usr/local && \
     chmod +x /usr/local/bin/dx  # Set permissions for dx only
 
-# Change permissions for the .cargo and .rustup directories
+# Change ownership for the .cargo and .rustup directories to the node user
 RUN chown -R node:node /root/.cargo /root/.rustup
 
 # Ensure Cargo bin directory is in PATH for all users
@@ -29,8 +29,8 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev && npm install concurrently tailwindcss --no-save
 
-# Create necessary directories and set permissions
-RUN mkdir -p dist/assets/styles target && chown -R node:node dist target
+# Create necessary directories and set permissions for node user
+RUN mkdir -p dist/assets/styles target && chown -R node:node dist target /usr/src/app
 
 # Switch to non-root user for running the application
 USER node
