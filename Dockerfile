@@ -16,24 +16,25 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --pr
 # Update PATH to include Cargo bin directory
 ENV PATH="/root/.cargo/bin:/usr/local/bin:${PATH}"
 
-# Ensure all necessary directories are owned by `node`
-RUN mkdir -p /root/.cargo /root/.rustup dist/assets/styles target && \
-    chown -R node:node /root/.cargo /root/.rustup dist target /usr/src/app
-
 # Use production node environment by default
 ENV NODE_ENV=production
 
+# Set working directory
 WORKDIR /usr/src/app
+
+# Ensure all necessary directories are owned by `node`
+RUN mkdir -p /root/.cargo /root/.rustup dist/assets/styles target /usr/src/app && \
+    chown -R node:node /root/.cargo /root/.rustup dist target /usr/src/app
+
+# Switch to non-root user for running the application
+USER node
 
 # Copy package files into the image and install dependencies
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev && npm install concurrently tailwindcss --no-save
 
-# Switch to non-root user for running the application
-USER node
-
 # Copy the rest of the source files into the image
-COPY --chown=node:node . .
+COPY . .
 
 # Expose the port that the application listens on
 EXPOSE 8080
