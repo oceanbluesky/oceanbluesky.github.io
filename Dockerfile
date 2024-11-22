@@ -24,6 +24,7 @@ WORKDIR /usr/src/app
 
 # Ensure all necessary directories are owned by `node`
 RUN mkdir -p /root/.cargo /root/.rustup dist/assets/styles target /usr/src/app && \
+    chmod -R 775 /root/.cargo /root/.rustup && \
     chown -R node:node /root/.cargo /root/.rustup dist target /usr/src/app
 
 # Switch to non-root user for running the application
@@ -39,5 +40,6 @@ COPY . .
 # Expose the port that the application listens on
 EXPOSE 8080
 
-# Run the application
+# Run the application as root to avoid permission issues
+USER root
 CMD ["npm", "run", "serve"]
