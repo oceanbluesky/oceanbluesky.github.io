@@ -1,44 +1,58 @@
-ARG VARIANT="nightly-bookworm-slim"
-FROM rustlang/rust:${VARIANT}
+# Use Rust nightly since Dioxus often requires latest features
+FROM rustlang/rust:nightly-bookworm-slim
 
-# Suppress interactive prompts in Docker builds
+# Prevent interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required dependencies, including Node.js and OpenSSL
-RUN apt-get update && \
-    apt-get install -qq -y \
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
     build-essential \
+    pkg-config \
+    libssl-dev \
     libwebkit2gtk-4.1-dev \
     libgtk-3-dev \
     libayatana-appindicator3-dev \
     curl \
-    pkg-config \
-    libssl-dev && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -qq -y nodejs && \
-    npm install -g concurrently && \
-    apt-get clean
+    git \
+    # Clean up to reduce image size
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest
+
+# Install Dioxus CLI
+RUN cargo install dioxus-cli
 
 # Set working directory
 WORKDIR /app
 
-# Copy Node.js dependencies for TailwindCSS
-COPY package*.json ./
-
-# Install Node.js dependencies
+# Copy package files first to leverage Docker cache
+COPY package.json ./
 RUN npm install
 
-# Copy source files into the image
+# Copy Rust dependency files
+COPY Cargo.toml Cargo.lock ./
+
+# Create dummy src to build dependencies
+RUN mkdir src && \
+    echo "fn main() {println!(\"dummy\")}" > src/main.rs && \
+    cargo build --release && \
+    rm -rf src
+
+# Create required directories for Tailwind
+RUN mkdir -p src/styles dist/assets/styles
+
+# Copy the rest of the application
 COPY . .
 
-# Build TailwindCSS before building the Rust project
-RUN npm run build:css
+# Ensure the output directory for Tailwind exists
+RUN mkdir -p dist/assets/styles
 
-# Build the Rust project
-RUN cargo build --release
-
-# Expose the application port
+# Expose port
 EXPOSE 8080
 
-# Start the application
+# Start using your existing npm script
 CMD ["npm", "run", "serve"]
