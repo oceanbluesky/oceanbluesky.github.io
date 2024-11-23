@@ -24,7 +24,7 @@ use components::{
 // ANCHOR: router
 #[derive(Routable, Clone)]
 #[rustfmt::skip]
-enum Route {
+pub enum Route {
     #[layout(NavBar)]
     #[route("/header")]
     Header {},
