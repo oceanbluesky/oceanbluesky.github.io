@@ -5,13 +5,13 @@ edition = "2021"
 
 [dependencies]
 dioxus = { version = "0.5.6", features = ["router", "web"] }
-dioxus-web = "*"
+dioxus-web = "0.5.6"
+dioxus-router = "0.5.6"
 serde = { version = "1.0.215", features = ["derive"] }
 serde_json = "1.0"
-dioxus-router = "*"
 stylist = "0.13.0"
 manganis = "0.2.2"
-dioxus-core = "0.5.6"
+
 
 [web.watcher]
 index_on_404 = true

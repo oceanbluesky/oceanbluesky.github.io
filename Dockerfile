@@ -15,7 +15,7 @@ RUN npm install
 RUN npx tailwindcss build -o dist/assets/styles/tailwind.css
 
 # Install dependencies and build the Rust application
-RUN cargo install --path .
+RUN cargo update && cargo build --release
 
 # Define the default command
-CMD ["myapp"]
+CMD ["./target/release/github_bio"]
