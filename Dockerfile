@@ -1,45 +1,14 @@
-# syntax=docker/dockerfile:1
+# Use a stable Rust image
+FROM rust:1.67
 
-ARG NODE_VERSION=23.0.0
-FROM node:${NODE_VERSION}-alpine
+# Set the working directory
+WORKDIR /usr/src/myapp
 
-# Install necessary system dependencies for Rust and Dioxus CLI
-RUN apk add --no-cache curl gcc musl-dev perl make
-
-# Install Rust and Dioxus CLI as root
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable && \
-    source $HOME/.cargo/env && \
-    PATH="$HOME/.cargo/bin:$PATH" && \
-    cargo install dioxus-cli --root /usr/local && \
-    chmod +x /usr/local/bin/dx
-
-# Update PATH to include Cargo bin directory
-ENV PATH="/root/.cargo/bin:/usr/local/bin:${PATH}"
-
-# Use production node environment by default
-ENV NODE_ENV=production
-
-# Set working directory
-WORKDIR /usr/src/app
-
-# Ensure all necessary directories are owned by `node`
-RUN mkdir -p /root/.cargo /root/.rustup dist/assets/styles target /usr/src/app && \
-    chmod -R 775 /root/.cargo /root/.rustup && \
-    chown -R node:node /root/.cargo /root/.rustup dist target /usr/src/app
-
-# Switch to non-root user for running the application
-USER node
-
-# Copy package files into the image and install dependencies
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev && npm install concurrently tailwindcss --no-save
-
-# Copy the rest of the source files into the image
+# Copy source code into the container
 COPY . .
 
-# Expose the port that the application listens on
-EXPOSE 8080
+# Install dependencies and build the Rust application
+RUN cargo install --path .
 
-# Run the application as root to avoid permission issues
-USER root
-CMD ["npm", "run", "serve"]
+# Define the default command
+CMD ["myapp"]
