@@ -1,6 +1,8 @@
 
-1st:  npm run serve   
-2nd:  http://localhost:8080
+# 1st:  
+npm run serve   
+# 2nd:  
+http://localhost:8080
 
 
 IF RUNNING VIA DOCKER:

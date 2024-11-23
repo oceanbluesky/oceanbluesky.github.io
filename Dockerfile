@@ -1,21 +1,44 @@
-# Use a Rust image with a compatible version
-FROM rust:1.73
+ARG VARIANT="nightly-bookworm-slim"
+FROM rustlang/rust:${VARIANT}
 
-# Set the working directory
-WORKDIR /usr/src/myapp
+# Suppress interactive prompts in Docker builds
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Copy source code into the container
+# Install required dependencies, including Node.js and OpenSSL
+RUN apt-get update && \
+    apt-get install -qq -y \
+    build-essential \
+    libwebkit2gtk-4.1-dev \
+    libgtk-3-dev \
+    libayatana-appindicator3-dev \
+    curl \
+    pkg-config \
+    libssl-dev && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -qq -y nodejs && \
+    npm install -g concurrently && \
+    apt-get clean
+
+# Set working directory
+WORKDIR /app
+
+# Copy Node.js dependencies for TailwindCSS
+COPY package*.json ./
+
+# Install Node.js dependencies
+RUN npm install
+
+# Copy source files into the image
 COPY . .
 
-# Install Node.js and npm for Tailwind CSS
-RUN apt-get update && apt-get install -y nodejs npm
+# Build TailwindCSS before building the Rust project
+RUN npm run build:css
 
-# Install Tailwind CSS and build the CSS file
-RUN npm install
-RUN npx tailwindcss build -o dist/assets/styles/tailwind.css
+# Build the Rust project
+RUN cargo build --release
 
-# Install dependencies and build the Rust application
-RUN cargo update && cargo build --release
+# Expose the application port
+EXPOSE 8080
 
-# Define the default command
-CMD ["./target/release/github_bio"]
+# Start the application
+CMD ["npm", "run", "serve"]
