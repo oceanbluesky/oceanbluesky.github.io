@@ -11,7 +11,9 @@ pub fn Projects() -> Element {
                 }
                 p { 
                     class: "font-text text-xl text-gray-500 mb-4", 
-                    "A brief description of what projects are goes here, describing career, skills, and interests." 
+                    "A brief description of what projects are goes here,"
+                    br {},
+                    "describing career, skills, and interests." 
                 }
                 // img { src: "assets/images/projects.png", alt: "Projects Image" }
             }

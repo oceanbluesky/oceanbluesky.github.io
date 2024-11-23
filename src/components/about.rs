@@ -12,7 +12,9 @@ pub fn About() -> Element {
                 }
                 p {
                     class: "font-text text-xl text-gray-500", 
-                    "A brief biography goes here, describing career, skills, and interests." 
+                    "A brief biography goes here,", 
+                    br {},
+                    "describing career, skills, and interests." 
                 }
                 // img { src: "assets/images/profile.jpg", alt: "Profile Image" }
             }
