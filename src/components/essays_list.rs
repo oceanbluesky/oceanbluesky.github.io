@@ -10,11 +10,11 @@ pub fn EssaysList() -> Element {
                 "Essays"
             }
             p { 
-                class: "font-text text-xl text-gray-500 mb-4", 
+                class: "font-text text-lg text-gray-500 mb-4", 
                 "A brief description of philosophy shared here." 
             }
             ul {
-                class: "font-text text-xl text-gray-500", 
+                class: "font-text text-lg text-gray-500", 
                 li { a { href: "/essays/essay1", "Essay Title 1" } }
                 li { a { href: "/essays/essay2", "Essay Title 2" } }
                 li { a { href: "/essays/essay3", "Essay Title 3" } }

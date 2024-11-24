@@ -5,7 +5,7 @@ npm run serve
 http://localhost:8080
 
 
-IF RUNNING VIA DOCKER:
+IF USING DOCKER:
 1) open the Docker Desktop application to start the Docker daemon.
 2) With -t githubio-app assigns the name githubio-app to the image and 
     specifies the current directory (where the Dockerfile is located) 
@@ -13,6 +13,7 @@ IF RUNNING VIA DOCKER:
         docker build --no-cache -t githubio-app .
 3) Then with the following command start a container using this named image:
         docker run -p 8080:8080 githubio-app
+4) Then open: http://localhost:8080 
 
 
 

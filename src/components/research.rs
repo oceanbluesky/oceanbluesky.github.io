@@ -10,11 +10,11 @@ pub fn Research() -> Element {
                     "Research"
                 }
                 p { 
-                    class: "font-text text-xl text-gray-500 mb-3", 
+                    class: "font-text text-lg text-gray-500 mb-3", 
                     "A brief message goes here." 
                 }
                 p { 
-                    class: "font-text text-xl text-gray-500", 
+                    class: "font-text text-lg text-gray-500", 
                     "Research activities." 
                 }
                 // img { src: "assets/images/research.png", alt: "Research Image" }

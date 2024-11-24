@@ -10,7 +10,7 @@ pub fn Contact() -> Element {
                 "Contact"
             }
             p {
-                class: "font-text text-xl text-gray-500", 
+                class: "font-text text-lg text-gray-500", 
                 "Feel free to reach out via the following platforms."
             }
                 div {

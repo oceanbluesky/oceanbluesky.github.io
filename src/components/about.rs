@@ -11,7 +11,7 @@ pub fn About() -> Element {
                     "About"
                 }
                 p {
-                    class: "font-text text-xl text-gray-500", 
+                    class: "font-text text-lg text-gray-500", 
                     "A brief biography goes here,", 
                     br {},
                     "describing career, skills, and interests." 

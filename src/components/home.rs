@@ -11,7 +11,7 @@ pub fn Home() -> Element {
                     "Welcome"
                 }
                 p { 
-                    class: "font-text text-xl text-gray-500", 
+                    class: "font-text text-lg text-gray-500", 
                     "A brief message goes here." 
                 }
                 // img { src: "assets/images/welcome.png", alt: "Welcome Image" }
