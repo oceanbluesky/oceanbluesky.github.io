@@ -7,6 +7,9 @@ use dioxus::prelude::*;
 // Disregard the error, it's a bug in the macro
 const TAILWIND_URL: &str = manganis::mg!(file("dist/assets/styles/tailwind.css"));
 
+// test path resolution
+println!("Resolved path: {:?}", manganis::mg!(file("dist/assets/styles/tailwind.css")));
+
 mod components;
 use components::{
     about::About,
