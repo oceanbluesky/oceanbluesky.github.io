@@ -7,9 +7,6 @@ use dioxus::prelude::*;
 // Disregard the error, it's a bug in the macro
 const TAILWIND_URL: &str = manganis::mg!(file("dist/assets/styles/tailwind.css"));
 
-// test path resolution
-println!("Resolved path: {:?}", manganis::mg!(file("dist/assets/styles/tailwind.css")));
-
 mod components;
 use components::{
     about::About,
@@ -58,6 +55,11 @@ pub enum Route {
 
 fn main() {
     dioxus::launch(App);
+        // Debug: Print the resolved path
+    println!("Resolved path: {:?}", manganis::mg!(file("dist/assets/styles/tailwind.css")));
+
+    // Application logic
+    println!("Using Tailwind CSS file at: {}", TAILWIND_URL);
 }
 
 pub fn App() -> Element {
