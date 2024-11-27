@@ -2,6 +2,7 @@
 
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
+use manganis; 
 
 // Urls are relative to Cargo.toml file
 // Disregard the error, it's a bug in the macro
