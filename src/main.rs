@@ -2,7 +2,6 @@
 
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
-use manganis; 
 
 // Urls are relative to Cargo.toml file
 // Disregard the error, it's a bug in the macro
@@ -29,38 +28,25 @@ pub enum Route {
     #[route("/header")]
     Header {},
     #[route("/")]
-    #[layout(NavBar)]
     Home {},
     #[route("/about")]
-    #[layout(NavBar)]
     About {},
     #[route("/contact")]
-    #[layout(NavBar)]
     Contact {},
     #[route("/essays_list")]
-    #[layout(NavBar)]
     EssaysList{},
     #[route("/footer")]
-    #[layout(NavBar)]
     Footer {},
     #[route("/projects")]
-    #[layout(NavBar)]
     Projects {},
     #[route("/research")]
-    #[layout(NavBar)]
     Research {},
-    #[layout(NavBar)]
     #[route("/:..route")]
     PageNotFound {route: Vec<String>},
 }
 
 fn main() {
     dioxus::launch(App);
-        // Debug: Print the resolved path
-    println!("Resolved path: {:?}", manganis::mg!(file("dist/assets/styles/tailwind.css")));
-
-    // Application logic
-    println!("Using Tailwind CSS file at: {}", TAILWIND_URL);
 }
 
 pub fn App() -> Element {

@@ -8,9 +8,11 @@ pub fn NavBar() -> Element {
     // Helper function to determine if a route is active
     let is_active = move |check_route: Route| -> &'static str {
         if route == check_route {
-            "no-underline px-3 py-2 text-red-400 transition-colors duration-200 hover:text-blue-600"
+            // Active link will have blue text without hover
+            "no-underline px-3 py-2 text-blue-400 transition-colors duration-200"
         } else {
-            "no-underline px-3 py-2 text-red-700 transition-colors duration-200 hover:text-blue-400"
+            // Inactive links will have blue text on hover
+            "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200"
         }
     };
 
