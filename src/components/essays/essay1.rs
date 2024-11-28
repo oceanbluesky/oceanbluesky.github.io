@@ -7,13 +7,12 @@ pub fn Essay1() -> Element {
             class: "essay ml-64 mt-16 mb-3",
             h2 {
                 class: "font-display font-bold text-5xl text-black",
-                "First Philosophical Exploration"
+                "1.0.0: First Philosophical Exploration"
             }
             p {
                 class: "font-text text-lg text-gray-500",
-                "Essay 1: An exploration of fundamental philosophical concepts",
-                br {},
-                "delving into the core of intellectual inquiry."
+                "An exploration of fundamental philosophical concepts 
+                delving into the core of intellectual inquiry."
             }
             div {
                 class: "font-text text-base text-gray-600 mt-4",
