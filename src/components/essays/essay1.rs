@@ -4,14 +4,14 @@ use dioxus::prelude::*;
 pub fn Essay1() -> Element {
     rsx! {
         div {
-            class: "about ml-64 mt-16 mb-3",
+            class: "essay ml-64 mt-16 mb-3",
             h2 {
                 class: "font-display font-bold text-5xl text-black",
-                "Essay 1: First Philosophical Exploration"
+                "First Philosophical Exploration"
             }
             p {
                 class: "font-text text-lg text-gray-500",
-                "An exploration of fundamental philosophical concepts",
+                "Essay 1: An exploration of fundamental philosophical concepts",
                 br {},
                 "delving into the core of intellectual inquiry."
             }
