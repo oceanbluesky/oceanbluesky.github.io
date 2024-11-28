@@ -6,7 +6,7 @@ pub fn Essay2() -> Element {
         div {
             class: "essay ml-64 mt-16 mb-3",
             h1 {
-                class: "font-display font-bold text-4xl text-black mb-4",
+                class: "font-display font-bold text-5xl text-black",
                 "2.0.0: Contemplations on Existence"
             }
             p {
