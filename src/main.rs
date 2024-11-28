@@ -3,10 +3,6 @@
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
 
-// Urls are relative to Cargo.toml file
-// Disregard the error, it's a bug in the macro
-const TAILWIND_URL: &str = manganis::mg!(file("dist/assets/styles/tailwind.css"));
-
 mod components;
 use components::{
     about::About,
