@@ -3,63 +3,50 @@ use crate::Route;
 
 #[component]
 pub fn NavBar() -> Element {
-    let route = use_route::<Route>();
-
-    // Helper function to determine if a route is active
-    let is_active = move |check_route: Route| -> &'static str {
-        if route == check_route {
-            // Active link will have blue text without hover
-            "no-underline px-3 py-2 text-blue-400 transition-colors duration-200"
-        } else {
-            // Inactive links will have blue text on hover
-            "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200"
-        }
-    };
-
     rsx! {
         nav {
-            class: "flex justify-center mt-4",
+            class: "flex justify-center mt-4", 
             ul {
-                class: "flex list-none p-0 m-0 gap-2 text-sm font-text font-light text-black",
+                class: "flex list-none p-0 m-0 gap-2 text-sm font-text font-light text-black", 
                 li {
                     Link {
                         to: Route::Home {},
-                        class: is_active(Route::Home {}),
+                        class: "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200",
                         "Home"
                     }
                 }
                 li {
                     Link {
                         to: Route::About {},
-                        class: is_active(Route::About {}),
+                        class: "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200",
                         "About"
                     }
                 }
                 li {
                     Link {
                         to: Route::EssaysList {},
-                        class: is_active(Route::EssaysList {}),
+                        class: "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200",
                         "Essays"
                     }
                 }
                 li {
                     Link {
                         to: Route::Projects {},
-                        class: is_active(Route::Projects {}),
+                        class: "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200",
                         "Projects"
                     }
                 }
                 li {
                     Link {
                         to: Route::Research {},
-                        class: is_active(Route::Research {}),
+                        class: "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200",
                         "Research"
                     }
                 }
                 li {
                     Link {
                         to: Route::Contact {},
-                        class: is_active(Route::Contact {}),
+                        class: "no-underline px-3 py-2 hover:text-blue-400 transition-colors duration-200",
                         "Contact"
                     }
                 }
