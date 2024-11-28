@@ -2,7 +2,6 @@
 
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
-
 mod components;
 use components::{
     about::About,
@@ -10,6 +9,9 @@ use components::{
     header::Header,
     home::Home,
     essays_list::EssaysList,
+    essays::essay1::Essay1,
+    essays::essay2::Essay2,
+    essays::essay3::Essay3,
     footer::Footer,
     navbar::NavBar,
     page_not_found::PageNotFound,
@@ -31,6 +33,12 @@ pub enum Route {
     Contact {},
     #[route("/essays_list")]
     EssaysList{},
+    #[route("/essays/essay1")]
+    Essay1 {},
+    #[route("/essays/essay2")]
+    Essay2 {},
+    #[route("/essays/essay3")]
+    Essay3 {},
     #[route("/footer")]
     Footer {},
     #[route("/projects")]

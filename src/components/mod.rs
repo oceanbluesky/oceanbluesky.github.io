@@ -1,9 +1,10 @@
 
-// mod.rs tells Rust to treat the directory as a module.
+// src/components/mod.rs 
 
 
 pub mod about;
 pub mod contact;
+pub mod essays;
 pub mod essays_list;
 pub mod footer;
 pub mod header;

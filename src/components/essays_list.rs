@@ -1,3 +1,6 @@
+
+// src/components/essays_list.rs
+
 use dioxus::prelude::*;
 
 #[component]
