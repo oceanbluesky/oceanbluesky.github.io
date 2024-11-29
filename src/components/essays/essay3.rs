@@ -32,7 +32,7 @@ pub fn Essay3() -> Element {
                     "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
                 }
                 div {
-                    class: "image-container",
+                    class: "image-container flex justify-center",
                     img {
                         src: "/assets/images/ethics_diagram.png",
                         alt: "Diagram showing different ethical theories",
