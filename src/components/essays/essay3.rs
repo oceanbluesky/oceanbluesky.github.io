@@ -36,7 +36,7 @@ pub fn Essay3() -> Element {
                     img {
                         src: "/assets/images/ethics_diagram.png",
                         alt: "Diagram showing different ethical theories",
-                        class: "w-full h-auto mb-4"
+                        class: "w-1/4 object-cover mb-4"
                     }
                     p {
                         "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."

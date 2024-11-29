@@ -590,12 +590,8 @@ video {
   display: flex;
 }
 
-.h-auto {
-  height: auto;
-}
-
-.w-full {
-  width: 100%;
+.w-1\/4 {
+  width: 25%;
 }
 
 .list-none {
@@ -614,6 +610,11 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-0 {
