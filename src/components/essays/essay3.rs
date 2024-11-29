@@ -34,7 +34,7 @@ pub fn Essay3() -> Element {
                 div {
                     class: "image-container",
                     img {
-                        src: "/images/ethics_diagram.png",
+                        src: "/assets/images/ethics_diagram.png",
                         alt: "Diagram showing different ethical theories",
                         class: "w-full h-auto mb-4"
                     }
