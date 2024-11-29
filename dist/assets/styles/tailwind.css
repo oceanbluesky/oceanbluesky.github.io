@@ -570,6 +570,10 @@ video {
   margin-left: 16rem;
 }
 
+.mr-64 {
+  margin-right: 16rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -584,6 +588,14 @@ video {
 
 .flex {
   display: flex;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .list-none {
@@ -616,6 +628,10 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .font-display {
