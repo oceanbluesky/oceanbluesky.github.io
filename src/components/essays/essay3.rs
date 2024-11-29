@@ -32,15 +32,18 @@ pub fn Essay3() -> Element {
                     "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
                 }
                 div {
-                    class: "image-container clear-both flex justify-center",
-                    img {
-                        src: "/assets/images/ethics_diagram.png",
-                        alt: "Diagram showing different ethical theories",
-                        style: "width: 50%; margin: 1rem;",
-                        class: "object-contain",
+                    class: "image-container clear-both",
+                    div {
+                        class: "flex justify-center",
+                        img {
+                            src: "/assets/images/ethics_diagram.png",
+                            alt: "Diagram showing different ethical theories",
+                            style: "width: 50%; margin: 1rem;",
+                            class: "object-contain block", // Ensure block-level display
+                        }
                     }
                     p {
-                        "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
+                        "Et h```arum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
                     }
                 }
                 p {
