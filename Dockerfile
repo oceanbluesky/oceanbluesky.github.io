@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libayatana-appindicator3-dev \
     curl \
     git \
-    # Clean up to reduce image size
+    jq \ 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -29,12 +29,17 @@ RUN cargo install dioxus-cli
 # Set working directory
 WORKDIR /app
 
+# Copy Rust dependency files
+COPY Cargo.toml Cargo.lock ./
+
+# Install the correct wasm-bindgen-cli version by reading the dependency tree
+RUN cargo metadata --format-version 1 \
+    | jq -r '.packages[] | select(.name == "wasm-bindgen") | .version' \
+    | xargs -I {} cargo install -f wasm-bindgen-cli --version {}
+
 # Copy package files first to leverage Docker cache
 COPY package.json ./
 RUN npm install
-
-# Copy Rust dependency files
-COPY Cargo.toml Cargo.lock ./
 
 # Create dummy src to build dependencies
 RUN mkdir src && \
