@@ -60,4 +60,4 @@ RUN mkdir -p dist/assets/styles
 EXPOSE 8080
 
 # Start using your existing npm script
-CMD ["npm", "run", "serve"]
+CMD ["dx", "serve", "--host", "0.0.0.0"]
