@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libayatana-appindicator3-dev \
     curl \
     git \
-    jq \ 
+    jq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -59,5 +59,10 @@ RUN mkdir -p dist/assets/styles
 # Expose port
 EXPOSE 8080
 
-# Start using your existing npm script
-CMD ["dx", "serve", "--host", "0.0.0.0"]
+# Add these lines near the end, before CMD
+RUN echo "Current directory contents:" && ls -la
+RUN echo "Dist directory contents:" && ls -la dist
+RUN echo "Assets directory contents:" && ls -la dist/assets
+
+# Change CMD to be more verbose
+CMD ["sh", "-c", "npm run serve && echo 'Server started' && sleep infinity"]
