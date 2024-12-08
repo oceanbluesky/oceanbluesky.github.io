@@ -66,3 +66,4 @@ RUN echo "Assets directory contents:" && ls -la dist/assets
 
 # Change CMD to be more verbose
 CMD ["sh", "-c", "npm run serve && echo 'Server started' && sleep infinity"]
+
