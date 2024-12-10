@@ -1,5 +1,5 @@
-# Use Rust nightly since Dioxus often requires latest features
-FROM rustlang/rust:nightly-bookworm-slim
+# Stage 1: Build the Dioxus application and Tailwind CSS
+FROM rustlang/rust:nightly-bookworm-slim AS builder
 
 # Prevent interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
@@ -15,8 +15,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     jq \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
@@ -37,36 +36,56 @@ RUN cargo metadata --format-version 1 \
     | jq -r '.packages[] | select(.name == "wasm-bindgen") | .version' \
     | xargs -I {} cargo install -f wasm-bindgen-cli --version {}
 
-# Copy package files first to leverage Docker cache
+# Copy package.json and install Node dependencies
 COPY package.json ./
 RUN npm install
-
-# Create dummy src to build dependencies
-RUN mkdir src && \
-    echo "fn main() {println!(\"dummy\")}" > src/main.rs && \
-    cargo build --release && \
-    rm -rf src
-
-# Create required directories for Tailwind
-RUN mkdir -p src/styles dist/assets/styles
 
 # Copy the rest of the application
 COPY . .
 
-# Ensure the output directory for Tailwind exists
-RUN mkdir -p dist/assets/styles
+# Build Tailwind CSS and the Dioxus application
+RUN npm run build:css
+RUN dx build --release --platform web
+
+
+
+# SECOND IMAGE
+
+
+# Stage 2: Create a lightweight image for serving
+FROM debian:bullseye-slim
+
+# Prevent interactive prompts during runtime
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set working directory
+WORKDIR /app
+
+# Copy build output from the builder stage
+COPY --from=builder /app/dist /app/dist
+
+# Install a lightweight HTTP server
+RUN apt-get update && apt-get install -y \
+    curl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Expose port
 EXPOSE 8080
 
-# error logging
-RUN echo "Current directory contents:" && ls -la
-RUN echo "Dist directory contents:" && ls -la dist
-RUN echo "Assets directory contents:" && ls -la dist/assets
+# Start the server to serve static files
+CMD ["sh", "-c", "cd dist && python3 -m http.server 8080"]
 
-# Explist build step for the Diouxus application
-RUN dx build --release --platform web
 
-# CMD verbose
-CMD ["sh", "-c", "npm run serve && echo 'Server started' && sleep infinity"]
-
+# Explanation
+# Multi-Stage Build:
+# Stage 1 (Builder):
+# Includes all build tools (Rust, Node.js, Dioxus CLI).
+# Builds Tailwind CSS (npm run build:css) and the Dioxus application (dx build).
+# Stage 2 (Final Image):
+# Copies the built dist folder from the builder stage.
+# Uses a lightweight base image (debian:bullseye-slim).
+# Avoids including unnecessary tools (Rust, Node.js) in the final image.
+# Static File Serving:
+# The dist directory is served using Python's built-in HTTP server.
+# Smaller Final Image:
+# The final image is lightweight since it only includes the static files and a minimal HTTP server.
