@@ -20,3 +20,15 @@ wasm-bindgen = "^0.2.99"
 [web.watcher]
 index_on_404 = true
 
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
+
