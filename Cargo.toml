@@ -3,7 +3,6 @@ name = "github_bio"
 version = "0.1.0"
 edition = "2021"
 
-
 [dependencies]
 dioxus = { version = "^0.6.0", features = ["router", "web"] }
 dioxus-web = "^0.6.0"
@@ -15,7 +14,6 @@ manganis = "^0.6.0"
 
 # Allow wasm-bindgen to update dynamically while staying within major version 0.2
 wasm-bindgen = "^0.2.99"
-
 
 [web.watcher]
 index_on_404 = true

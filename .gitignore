@@ -12,7 +12,6 @@
 **/*.exe
 **/*.stamp
 **/*.lock
-**/*.json
 
 # Ignore Cargo.lock for libraries (but keep it for binaries)
 /Cargo.lock
