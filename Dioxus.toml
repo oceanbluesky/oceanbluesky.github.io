@@ -1,0 +1,3 @@
+[application]
+output = "dist"
+serve_dir = "dist"
