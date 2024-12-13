@@ -4,8 +4,11 @@ FROM rustlang/rust:nightly-bookworm-slim AS builder
 # Prevent interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies
+# Install Python 3, system dependencies, and other required packages
 RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-venv \
+    python3-pip \
     build-essential \
     pkg-config \
     libssl-dev \
