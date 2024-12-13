@@ -39,7 +39,7 @@ the 'npm commands' are in package.json (if files are moved update the package.js
 
 * this needs 'npm install concurrently --save-dev' to ensure CSS watching and dx server run simultaneously 
 
-* this alos needs 'cargo add manganis' to be run in the termiinal to ensure Dioxus can link the compoiled tailwind.css file from the index.html file Dioxus compiles
+* this also needs 'cargo add manganis' to be run in the termiinal to ensure Dioxus can link the compoiled tailwind.css file from the index.html file Dioxus compiles
 ( src/styles/input.css is used to create the output css file dist/assets/styles/tailwind.css)
 
 * 'tailwind.config.js' is used to tell tailwind where to find files to compile
