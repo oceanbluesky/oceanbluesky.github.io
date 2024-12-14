@@ -7,6 +7,9 @@ Generates a static build (dist/index.html) for production deployment:
         npx serve dist
 
 
+build.rs runs alongside cargo.toml to guide build
+
+
 
 # Old Approach to running (without Docker)
 # 1st:  
@@ -24,8 +27,6 @@ IF USING DOCKER:
 3) Then with the following command start a container using this named image:
         docker run -p 8080:8080 githubio-app
 4) Then open: http://localhost:8080 
-
-
 
 
 
