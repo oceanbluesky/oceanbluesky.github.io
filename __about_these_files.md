@@ -1,4 +1,5 @@
 
+# Remove this comment when build issue is resovled: Had to manually transfer built files from target to dist
 
 # New Approach to running (without Docker)
 Generates a static build (dist/index.html) for production deployment:
