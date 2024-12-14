@@ -50,9 +50,9 @@ pub enum Route {
 }
 
 fn main() {
-    dioxus::launch(App);
+    dioxus::launch(app);
 }
 
-pub fn App() -> Element {
+pub fn app() -> Element {
     rsx! { Router::<Route> {} }
 }

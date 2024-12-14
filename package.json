@@ -7,8 +7,8 @@
     "tailwindcss": "^3.4.16"
   },
   "scripts": {
-    "build:css": "npx tailwindcss -i src/styles/input.css -o dist/assets/styles/tailwind.css",
-    "build": "dx build --release",
+    "build:css": "npx tailwindcss -i src/styles/input.css -o dist/assets/styles/tailwind.css",    
+    "build": "npm run build:css && build --release",
     "serve": "serve dist",
     "dev": "concurrently \"npm run build:css --watch\" \"dx serve\""
   }

@@ -1,4 +1,14 @@
 
+
+# New Approach to running (without Docker)
+Generates a static build (dist/index.html) for production deployment:
+
+        dx build --release
+        npx serve dist
+
+
+
+# Old Approach to running (without Docker)
 # 1st:  
 npm run serve   
 # 2nd:  
