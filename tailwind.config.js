@@ -6,7 +6,6 @@ module.exports = {
   mode: "all",
   content: [
     "./src/**/*.{rs,html,css}",
-    "./assets/**/*.css"
   ],
   theme: {
     extend: {

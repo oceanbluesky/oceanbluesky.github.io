@@ -8,10 +8,11 @@ out_dir = "target/d-dist"
 serve_dir = "target/d-dist"
 
 [web.app]
-title = "Eric Machmer TEST"
+title = "Eric Machmer"
 
 [web.resource]
-style = ["./assets/styles/tailwind.css"]
+# Include the '/' at the start of the file path below to ensure pages in subdirectories properly reference the css file
+style = ["/assets/styles/tailwind.css"] # This is injected into the head of the index.html document
 script = []
 
 [web.resource.dev]
