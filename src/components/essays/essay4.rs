@@ -10,7 +10,7 @@ pub fn Essay4() -> Element {
                 style: "margin-left: 16rem; margin-right: 16rem;",
             h1 {
                 class: "font-display font-bold text-5xl text-black",
-                "Graduating from Ethical Altruism"
+                "4.0.0: Graduating from Ethical Altruism"
             }
             p {
                 class: "font-text text-lg text-gray-700 mb-4",

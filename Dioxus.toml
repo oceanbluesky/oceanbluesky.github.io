@@ -11,7 +11,7 @@ serve_dir = "target/d-dist"
 title = "Eric Machmer"
 
 [web.resource]
-# Include the '/' at the start of the file path below to ensure pages in subdirectories properly reference the css file
+# Include the '/' at the start of the file path below to ensure pages in subdirectories like 'essays' properly reference the css file
 style = ["/assets/styles/tailwind.css"] # This is injected into the head of the index.html document
 script = []
 
