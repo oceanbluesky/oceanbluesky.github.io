@@ -12,7 +12,7 @@ pub fn About() -> Element {
                 }
                 p {
                     class: "font-text text-lg text-gray-500", 
-                    "A brief biography goes here,", 
+                    "TEST A brief biography goes here,", 
                     br {},
                     "describing career, skills, and interests." 
                 }

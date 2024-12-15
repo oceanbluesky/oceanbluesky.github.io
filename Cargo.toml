@@ -2,7 +2,7 @@
 # Cargo.toml
 
 [package]
-name = "github_bio"
+name = "github_io"
 version = "0.1.0"
 edition = "2021"
 
@@ -17,8 +17,10 @@ stylist = "^0.13"
 [build-dependencies]
 dotenv = "^0.15"   # Build dependency for environment variables
 
-# Allow wasm-bindgen to update dynamically while staying within major version 0.2
-wasm-bindgen = "^0.2.99"
+[features]
+default = []
+web = ["dioxus/web"]
+mobile = ["dioxus/mobile"]
 
 [profile]
 
@@ -31,4 +33,3 @@ inherits = "dev"
 
 [profile.android-dev]
 inherits = "dev"
-

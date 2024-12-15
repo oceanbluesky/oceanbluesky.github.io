@@ -1,5 +1,19 @@
 
 # Dioxus.toml
 [application]
-output = "dist"
-serve_dir = "dist"
+name = "github_io"
+default_platform = "web"
+toolchain = "wasm"
+out_dir = "target/d-dist"
+serve_dir = "target/d-dist"
+
+[web.app]
+title = "Eric Machmer TEST"
+
+[web.resource]
+style = ["./assets/styles/tailwind.css"]
+script = []
+
+[web.resource.dev]
+script = []
+

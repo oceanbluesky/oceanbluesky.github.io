@@ -1,22 +1,11 @@
 
-# Remove this comment when build issue is resovled: Had to manually transfer built files from target to dist
-
-# New Approach to running (without Docker)
-Generates a static build (dist/index.html) for production deployment:
-
-        dx build --release
-        npx serve dist
 
 
-build.rs runs alongside cargo.toml to guide build
-
-
-
-# Old Approach to running (without Docker)
-# 1st:  
-npm run serve   
-# 2nd:  
-http://localhost:8080
+# Currently best approach to running (without Docker)
+        npm run build [to create the tailwinds.css before dioxus builds]
+     then:
+        dx serve --platform web [to serve the app locally]
+        Serving at: http://127.0.0.1:8080     
 
 
 IF USING DOCKER:

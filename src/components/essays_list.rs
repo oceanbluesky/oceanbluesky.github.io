@@ -1,6 +1,9 @@
 
 // src/components/essays_list.rs
 
+// WHEN ADDING NEW ESSAYS, ADD THEM TO THE LIST BELOW, AND CREATE A NEW FILE IN THE ESSAYS FOLDER
+// AND ADD THE COMPONENT AND ITS ROUTE TO MAIN.RS AND MOD.RS (three files need to be updated)
+
 use dioxus::prelude::*;
 
 #[component]
@@ -21,6 +24,7 @@ pub fn EssaysList() -> Element {
                 li { a { href: "/essays/essay1", "Essay Title 1" } }
                 li { a { href: "/essays/essay2", "Essay Title 2" } }
                 li { a { href: "/essays/essay3", "Essay Title 3" } }
+                li { a { href: "/essays/essay4", "Essay Title 4" } }
             }
         }
     }

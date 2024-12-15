@@ -1,5 +1,7 @@
 // src/main.rs
 
+// ANY NEW ESSAY COMPONENTS AND THEIR ROUTES MUST BE ADDED TO TWO PLACES INDICATED BELOW
+
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
 mod components;
@@ -12,6 +14,7 @@ use components::{
     essays::essay1::Essay1,
     essays::essay2::Essay2,
     essays::essay3::Essay3,
+    essays::essay4::Essay4, // <<< ADD NEW ESSAY COMPONENT HERE
     footer::Footer,
     navbar::NavBar,
     page_not_found::PageNotFound,
@@ -39,6 +42,8 @@ pub enum Route {
     Essay2 {},
     #[route("/essays/essay3")]
     Essay3 {},
+    #[route("/essays/essay4")]  // <<< ADD NEW ESSAY ROUTE HERE
+    Essay4 {},
     #[route("/footer")]
     Footer {},
     #[route("/projects")]
