@@ -1,5 +1,6 @@
 
 # Currently best approach to running (without Docker)
+
         npm run build [to create the tailwinds.css before dioxus builds]
      then:
         dx serve --platform web [to serve the app locally]
@@ -13,20 +14,20 @@
         When you run dx build, Dioxus copies these static assets into the final build output directory, often something like target/dx/<app_name>/release/web/public.
         The index.html generated or processed by Dioxus references these files using relative paths like assets/styles/tailwind.css. This path points to the assets folder inside the output directory (e.g., public/assets/styles/tailwind.css), not the original assets folder at your project root.
 
-
 # REWORK THIS IF RETRYING WITH DOCKER
+
 IF USING DOCKER:
+
 1) open the Docker Desktop application to start the Docker daemon.
-2) With -t githubio-app assigns the name githubio-app to the image and 
-    specifies the current directory (where the Dockerfile is located) 
+
+2) With -t githubio-app assigns the name githubio-app to the image and
+    specifies the current directory (where the Dockerfile is located)
     as the build context:
-        docker build --no-cache -t githubio-app .
+        docker build --no-cache -t githubio-app
+
 3) Then with the following command start a container using this named image:
         docker run -p 8080:8080 githubio-app
-4) Then open: http://localhost:8080 
-
-
+4) Then open: <http://localhost:8080>
 
 Info:
-https://dioxuslabs.com/learn/0.5/cookbook/tailwind/
-
+<https://dioxuslabs.com/learn/0.5/cookbook/tailwind/>
