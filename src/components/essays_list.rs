@@ -17,7 +17,19 @@ pub fn EssaysList() -> Element {
             }
             p { 
                 class: "font-text text-lg text-gray-500 mb-4", 
-                "A brief description of philosophy shared here." 
+                "A poet should learn with their eyes
+the forms of leaves.
+They should know how to make people laugh when
+all are together.
+They should go to see what people are really like.
+They should know about oceans and mountains
+in themselves,
+and the sun and the moon and the stars.
+Their minds should enter into the seasons.
+They should go among many people,
+in many places,
+and learn their languages.
+Kshemendra, 12th Century" 
             }
             ul {
                 class: "font-text text-lg text-gray-500", 
