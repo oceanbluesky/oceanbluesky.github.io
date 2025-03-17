@@ -6,6 +6,7 @@ pub fn Footer() -> Element {
         div { 
             class: "footer",
             h2 { "Footer here" }
+            This is normal text to test wihtou tags
         }
     }
 }
