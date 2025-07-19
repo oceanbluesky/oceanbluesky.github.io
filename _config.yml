@@ -145,10 +145,6 @@ newsletter:
 collections:
   books:
     output: true
-  news:
-    defaults:
-      layout: post
-    output: true
   projects:
     output: true
 
@@ -221,6 +217,11 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: "post"
 
 sass:
   style: compressed
