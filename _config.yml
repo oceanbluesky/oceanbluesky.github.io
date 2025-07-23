@@ -349,6 +349,7 @@ external_links:
 #   convert -version
 imagemagick:
   enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  executable_name: "magick" # added by EM
   widths:
     - 480
     - 800
