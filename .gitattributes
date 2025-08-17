@@ -1,6 +1,43 @@
-# Normalize all text files
-* text=auto
 
-# Force LF line endings, needed for Docker to work on Windows
+# Set default behavior for line endings
+* text=auto eol=lf
+
+
+# Explicitly handle specific file types
+
+# For binary files that should not be converted
+*.exe binary
+*.dll binary
+*.obj binary
+*.pdb binary
+*.so binary
+*.o binary
+*.a binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.mp3 binary
+*.mp4 binary
+*.flac binary
+*.ogg binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+
+# For shell scripts, ensure LF line endings for consistency on Macs/Linux
 *.sh text eol=lf
+*.bash text eol=lf
 
+# For batch files, ensure CRLF line endings for consistency on Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Ensure markdown and other text files have consistent line endings
+*.md text eol=lf
+*.txt text eol=lf
+*.log text eol=lf
